@@ -1,3 +1,4 @@
+# 2461544578681338
 {
     inputs = { } ;
     outputs =
@@ -7,7 +8,7 @@
                     { input ? x : x , output ? x : x } :
                         let
                             implementation =
-                                { lib , pkgs , ... } :
+                                { lib , pkgs , ... } @module :
                                     let
                                         identified =
                                             if builtins.typeOf input == "lambda" then input module
@@ -17,9 +18,10 @@
                                         in
                                             with identified ;
                                                 {
+                                                    config.environment.sessionVariables.HELLO_WORLD = config.helloworld-express ;
                                                     options =
                                                         {
-                                                            express-package =
+                                                            hello-world-express =
                                                                 lib.mkOption
                                                                     {
                                                                         default =
