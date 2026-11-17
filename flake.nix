@@ -10,10 +10,7 @@
                             implementation =
                                 { lib , pkgs , ... } @module :
                                     let
-                                        identified =
-                                            if builtins.typeOf input == "lambda" then input module
-                                            else if builtins.typeOf input == "null" then module
-                                            else builtins.throw "6139038609734612" ;
+                                        identified = input module ;
                                         server = ./server.js ;
                                         in
                                             with identified ;
@@ -49,6 +46,7 @@
                                                                                                                     } ;
                                                                                                             type = lib.types.package ;
                                                                                                         } ;
+                                                                                            } ;
                                                                                     dependencies = [ config.express-package ] ;
                                                                                     entry-point = "server.js" ;
                                                                                     mounts = { } ;
