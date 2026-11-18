@@ -31,17 +31,30 @@
                                                                                                     lib.mkOption
                                                                                                         {
                                                                                                             default =
-                                                                                                                config.lazy-shell-application
+                                                                                                                config.lazy-node-application
                                                                                                                     {
+                                                                                                                        code =
+                                                                                                                            { pkgs , ... } :
+                                                                                                                                [
+                                                                                                                                    (
+                                                                                                                                        pkgs.writeShellApplication
+                                                                                                                                            {
+                                                                                                                                                name = "code" ;
+                                                                                                                                                runtimeInputs = [ pkgs ] ;
+                                                                                                                                                text =
+                                                                                                                                                    ''
+                                                                                                                                                        cat ${ server } > server.js
+                                                                                                                                                        chmod 0400 server.js
+                                                                                                                                                    '' ;
+                                                                                                                                            }
+                                                                                                                                    )
+                                                                                                                                ] ;
+                                                                                                                        dependencies = { config , ... } [ config.express-package ] ;
+                                                                                                                        entry-point = "server.js" ;
                                                                                                                         mounts = { } ;
-                                                                                                                        name = "code-script" ;
+                                                                                                                        name = "hello-world-express" ;
+                                                                                                                        nodejs = pkgs.nodejs_22 ;
                                                                                                                         post = [ ] ;
-                                                                                                                        runtime-inputs = { pkgs , ... } : [ pkgs.coreutils ] ;
-                                                                                                                        text =
-                                                                                                                            ''
-                                                                                                                                cat ${ server } > server.js
-                                                                                                                                chmod 0400 server.js
-                                                                                                                            '' ;
                                                                                                                         variables = { } ;
                                                                                                                     } ;
                                                                                                             type = lib.types.package ;
