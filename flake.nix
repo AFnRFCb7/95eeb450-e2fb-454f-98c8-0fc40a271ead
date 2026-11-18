@@ -49,7 +49,7 @@
                                                                                                                                             }
                                                                                                                                     )
                                                                                                                                 ] ;
-                                                                                                                        dependencies = { config , ... } [ config.express-package ] ;
+                                                                                                                        dependencies = { config , ... } : [ config.express-package ] ;
                                                                                                                         entry-point = "server.js" ;
                                                                                                                         mounts = { } ;
                                                                                                                         name = "hello-world-express" ;
