@@ -44,7 +44,7 @@
                                                                                     entry-point = "server.js" ;
                                                                                     mounts = { } ;
                                                                                     name = "hello-world" ;
-                                                                                    node = pkgs.nodejs ;
+                                                                                    nodejs = pkgs.nodejs_22 ;
                                                                                     post = [ ] ;
                                                                                     variables = { } ;
                                                                                 } ;
