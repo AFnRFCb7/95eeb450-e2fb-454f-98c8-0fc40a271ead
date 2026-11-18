@@ -26,20 +26,16 @@
                                                                                 {
                                                                                     code =
                                                                                         { config , lib , ... } :
-                                                                                            [
-                                                                                                (
-                                                                                                    pkgs.writeShellApplication
-                                                                                                        {
-                                                                                                            name = "code" ;
-                                                                                                            runtimeInputs = [ pkgs.coreutils ] ;
-                                                                                                            text =
-                                                                                                                ''
-                                                                                                                    cat ${ server } > server.js
-                                                                                                                    chmod 0400 server.js
-                                                                                                                '' ;
-                                                                                                        }
-                                                                                                )
-                                                                                            ] ;
+                                                                                            pkgs.writeShellApplication
+                                                                                                {
+                                                                                                    name = "code" ;
+                                                                                                    runtimeInputs = [ pkgs.coreutils ] ;
+                                                                                                    text =
+                                                                                                        ''
+                                                                                                            cat ${ server } > server.js
+                                                                                                            chmod 0400 server.js
+                                                                                                        '' ;
+                                                                                                } ;
                                                                                     dependencies = { config , ... } : [ config.express-package ] ;
                                                                                     entry-point = "server.js" ;
                                                                                     mounts = { } ;
