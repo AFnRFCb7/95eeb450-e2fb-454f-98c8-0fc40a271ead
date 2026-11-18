@@ -27,46 +27,31 @@
                                                                                     code =
                                                                                         { config , lib , ... } :
                                                                                             {
-                                                                                                options.hello-world-express =
-                                                                                                    lib.mkOption
-                                                                                                        {
-                                                                                                            default =
-                                                                                                                config.lazy-node-application
+                                                                                                code =
+                                                                                                    { pkgs , ... } :
+                                                                                                        [
+                                                                                                            (
+                                                                                                                pkgs.writeShellApplication
                                                                                                                     {
-                                                                                                                        code =
-                                                                                                                            { pkgs , ... } :
-                                                                                                                                [
-                                                                                                                                    (
-                                                                                                                                        pkgs.writeShellApplication
-                                                                                                                                            {
-                                                                                                                                                name = "code" ;
-                                                                                                                                                runtimeInputs = [ pkgs ] ;
-                                                                                                                                                text =
-                                                                                                                                                    ''
-                                                                                                                                                        cat ${ server } > server.js
-                                                                                                                                                        chmod 0400 server.js
-                                                                                                                                                    '' ;
-                                                                                                                                            }
-                                                                                                                                    )
-                                                                                                                                ] ;
-                                                                                                                        dependencies = { config , ... } : [ config.express-package ] ;
-                                                                                                                        entry-point = "server.js" ;
-                                                                                                                        mounts = { } ;
-                                                                                                                        name = "hello-world-express" ;
-                                                                                                                        nodejs = pkgs.nodejs_22 ;
-                                                                                                                        post = [ ] ;
-                                                                                                                        variables = { } ;
-                                                                                                                    } ;
-                                                                                                            type = lib.types.package ;
-                                                                                                        } ;
-                                                                                            } ;
-                                                                                    dependencies = [ config.express-package ] ;
-                                                                                    entry-point = "server.js" ;
-                                                                                    mounts = { } ;
-                                                                                    name = "hello-world" ;
-                                                                                    node = pkgs.nodejs ;
-                                                                                    post = [ ] ;
-                                                                                    variable = { } ;
+                                                                                                                        name = "code" ;
+                                                                                                                        runtimeInputs = [ pkgs ] ;
+                                                                                                                        text =
+                                                                                                                            ''
+                                                                                                                                cat ${ server } > server.js
+                                                                                                                                chmod 0400 server.js
+                                                                                                                            '' ;
+                                                                                                                    }
+                                                                                                            )
+                                                                                                        ] ;
+                                                                                                    dependencies = { config , ... } : [ config.express-package ] ;
+                                                                                                    entry-point = "server.js" ;
+                                                                                                    mounts = { } ;
+                                                                                                    name = "hello-world-express" ;
+                                                                                                    nodejs = pkgs.nodejs_22 ;
+                                                                                                    post = [ ] ;
+                                                                                                    variables = { } ;
+                                                                                                } ;
+                                                                                        type = lib.types.package ;
                                                                                 } ;
                                                                         type = lib.types.package ;
                                                                     } ;
