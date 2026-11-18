@@ -24,7 +24,7 @@
                                                                         default =
                                                                             config.lazy-node-application
                                                                                 {
-                                                                                    code-script =
+                                                                                    code =
                                                                                         { config , lib , ... } :
                                                                                             {
                                                                                                 options.hello-world-express =
