@@ -15,7 +15,7 @@
                                         in
                                             with identified ;
                                                 {
-                                                    # config.environment.sessionVariables.HELLO_WORLD = config.hello-world-express ;
+                                                    config.environment.sessionVariables.HELLO_WORLD = config.hello-world-express ;
                                                     options =
                                                         {
                                                             hello-world-express =
@@ -36,7 +36,7 @@
                                                                                                             chmod 0400 server.js
                                                                                                         '' ;
                                                                                                 } ;
-                                                                                    dependencies = { config , ... } : [ config.express-package ] ;
+                                                                                    dependencies = { config , ... } : [ ] ;
                                                                                     entry-point = "server.js" ;
                                                                                     mounts = { } ;
                                                                                     name = "hello-world" ;
