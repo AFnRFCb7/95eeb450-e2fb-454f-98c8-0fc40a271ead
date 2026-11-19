@@ -15,7 +15,7 @@
                                         in
                                             with identified ;
                                                 {
-                                                    config.environment.sessionVariables.HELLO_WORLD = config.hello-world-express ;
+                                                    # config.environment.sessionVariables.HELLO_WORLD = config.hello-world-express ;
                                                     options =
                                                         {
                                                             hello-world-express =
