@@ -15,6 +15,7 @@
                                         in
                                             with identified ;
                                                 {
+                                                    config.environment.sessionVariables.NPM_INSTALL = config.lazy-node-packager pkgs.nodejs_22 ;
                                                     config.environment.sessionVariables.HELLO_WORLD = config.hello-world-express ;
                                                     config.environment.sessionVariables.EXPRESS_PACKAGE = config.express-package ;
                                                     options =
