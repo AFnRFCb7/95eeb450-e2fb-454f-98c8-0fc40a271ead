@@ -37,7 +37,7 @@
                                                                                                             chmod 0400 server.js
                                                                                                         '' ;
                                                                                                 } ;
-                                                                                    dependencies = { config , ... } : [ ] ;
+                                                                                    dependencies = { config , ... } : [ config.express-package ] ;
                                                                                     entry-point = "server.js" ;
                                                                                     mounts = { } ;
                                                                                     name = "hello-world" ;
